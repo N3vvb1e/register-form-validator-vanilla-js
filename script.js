@@ -66,11 +66,12 @@ function getFieldName(input) {
 form.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    checkRequired([username, email, password, password2]);
-    checkLength(username, 3, 15);
-    checkLength(password, 6, 25);
-    checkEmail(email);
-    checkPasswordsMatch(password, password2);
+    if(!checkRequired([username, email, password, password2])) {
+        checkLength(username, 3, 15);
+        checkLength(password, 6, 25);
+        checkEmail(email);
+        checkPasswordsMatch(password, password2);
+    }
 
     // if(username.value === '') {
     //     showError(username, 'Username is required');
